@@ -1,0 +1,627 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.38 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| naga               |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.02 sec)
+
+mysql> use naga;
+Database changed
+mysql> create table naga(id int(10),name char(30),sal decimal(8,2));
+Query OK, 0 rows affected, 1 warning (0.55 sec)
+
+mysql> desc naga;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| id    | int          | YES  |     | NULL    |       |
+| name  | char(30)     | YES  |     | NULL    |       |
+| sal   | decimal(8,2) | YES  |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into naga values(222,"naga",2000),(223,"Arjun",3000),(224,"reddy",6000);
+Query OK, 3 rows affected (0.11 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select*from naga;
++------+-------+---------+
+| id   | name  | sal     |
++------+-------+---------+
+|  222 | naga  | 2000.00 |
+|  223 | Arjun | 3000.00 |
+|  224 | reddy | 6000.00 |
++------+-------+---------+
+3 rows in set (0.00 sec)
+
+mysql> alter table naga rename emp;
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> select*from naga;
+ERROR 1146 (42S02): Table 'naga.naga' doesn't exist
+mysql> select*from emp;
++------+-------+---------+
+| id   | name  | sal     |
++------+-------+---------+
+|  222 | naga  | 2000.00 |
+|  223 | Arjun | 3000.00 |
+|  224 | reddy | 6000.00 |
++------+-------+---------+
+3 rows in set (0.00 sec)
+
+mysql> alter table emp rename sal to salary;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'to salary' at line 1
+mysql> alter table emp modify sal to salary;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'to salary' at line 1
+mysql> alter table emp modify column  sal to salary;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'to salary' at line 1
+mysql> ALTER TABLE employees RENAME COLUMN address TO location;
+ERROR 1146 (42S02): Table 'naga.employees' doesn't exist
+mysql> alter table emp coumn salary float(10,2);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'coumn salary float(10,2)' at line 1
+mysql> alter table emp column salary float(10,2);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'column salary float(10,2)' at line 1
+mysql> alter table emp rename column sal to salary float(10,2);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'float(10,2)' at line 1
+mysql> alter table emp rename column sal to salary;
+Query OK, 0 rows affected (0.20 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> 3.
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    -> n^Z^C
+mysql> select * from emp;
++------+-------+---------+
+| id   | name  | salary  |
++------+-------+---------+
+|  222 | naga  | 2000.00 |
+|  223 | Arjun | 3000.00 |
+|  224 | reddy | 6000.00 |
++------+-------+---------+
+3 rows in set (0.00 sec)
+
+mysql> alter table emp add pf int(12);
+Query OK, 0 rows affected, 1 warning (0.13 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> select * from emp;
++------+-------+---------+------+
+| id   | name  | salary  | pf   |
++------+-------+---------+------+
+|  222 | naga  | 2000.00 | NULL |
+|  223 | Arjun | 3000.00 | NULL |
+|  224 | reddy | 6000.00 | NULL |
++------+-------+---------+------+
+3 rows in set (0.00 sec)
+
+mysql> update emp set pf=20 where salary>=2000;
+Query OK, 3 rows affected (0.08 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> update emp set pf=20 where salary>=2000;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 3  Changed: 0  Warnings: 0
+
+mysql> select * from emp;
++------+-------+---------+------+
+| id   | name  | salary  | pf   |
++------+-------+---------+------+
+|  222 | naga  | 2000.00 |   20 |
+|  223 | Arjun | 3000.00 |   20 |
+|  224 | reddy | 6000.00 |   20 |
++------+-------+---------+------+
+3 rows in set (0.00 sec)
+
+mysql> update emp set name="Reddy" where id=224;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp;
++------+-------+---------+------+
+| id   | name  | salary  | pf   |
++------+-------+---------+------+
+|  222 | naga  | 2000.00 |   20 |
+|  223 | Arjun | 3000.00 |   20 |
+|  224 | Reddy | 6000.00 |   20 |
++------+-------+---------+------+
+3 rows in set (0.00 sec)
+
+mysql> select max(salary) from emp;
++-------------+
+| max(salary) |
++-------------+
+|     6000.00 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select max(salary) from emp where salary (select max(salary) from emp);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select max(salary) from emp)' at line 1
+mysql> select max(salary) from emp where salary (select max<(salary) from emp);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select max<(salary) from emp)' at line 1
+mysql> select max(salary) from emp where salary<(select max(salary) from emp);
++-------------+
+| max(salary) |
++-------------+
+|     3000.00 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select min(salary) from;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> select min(salary) from emp;
++-------------+
+| min(salary) |
++-------------+
+|     2000.00 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select(*) from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*) from emp' at line 1
+mysql> select(*)count from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*)count from emp' at line 1
+mysql> select count(*) from emp;
++----------+
+| count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp;
++------+-------+---------+------+
+| id   | name  | salary  | pf   |
++------+-------+---------+------+
+|  222 | naga  | 2000.00 |   20 |
+|  223 | Arjun | 3000.00 |   20 |
+|  224 | Reddy | 6000.00 |   20 |
++------+-------+---------+------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp where like '%n%;
+    '> ^C
+mysql> select * from emp where like '%n%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'like '%n%'' at line 1
+mysql> select * from emp where like '%n';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'like '%n'' at line 1
+mysql> select avg(salary) from emp;
++-------------+
+| avg(salary) |
++-------------+
+| 3666.666667 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp
+    -> ;
++------+-------+---------+------+
+| id   | name  | salary  | pf   |
++------+-------+---------+------+
+|  222 | naga  | 2000.00 |   20 |
+|  223 | Arjun | 3000.00 |   20 |
+|  224 | Reddy | 6000.00 |   20 |
++------+-------+---------+------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp where name like '%a';
++------+------+---------+------+
+| id   | name | salary  | pf   |
++------+------+---------+------+
+|  222 | naga | 2000.00 |   20 |
++------+------+---------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp where name like 'R%';
++------+-------+---------+------+
+| id   | name  | salary  | pf   |
++------+-------+---------+------+
+|  224 | Reddy | 6000.00 |   20 |
++------+-------+---------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp where name like %ju%;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%ju%' at line 1
+mysql> select * from emp where name like '%ju%';
++------+-------+---------+------+
+| id   | name  | salary  | pf   |
++------+-------+---------+------+
+|  223 | Arjun | 3000.00 |   20 |
++------+-------+---------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp;
++------+-------+---------+------+
+| id   | name  | salary  | pf   |
++------+-------+---------+------+
+|  222 | naga  | 2000.00 |   20 |
+|  223 | Arjun | 3000.00 |   20 |
+|  224 | Reddy | 6000.00 |   20 |
++------+-------+---------+------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp order by salary;
++------+-------+---------+------+
+| id   | name  | salary  | pf   |
++------+-------+---------+------+
+|  222 | naga  | 2000.00 |   20 |
+|  223 | Arjun | 3000.00 |   20 |
+|  224 | Reddy | 6000.00 |   20 |
++------+-------+---------+------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp order by salary desc;
++------+-------+---------+------+
+| id   | name  | salary  | pf   |
++------+-------+---------+------+
+|  224 | Reddy | 6000.00 |   20 |
+|  223 | Arjun | 3000.00 |   20 |
+|  222 | naga  | 2000.00 |   20 |
++------+-------+---------+------+
+3 rows in set (0.00 sec)
+
+mysql> alter table emp add dept char(10);
+Query OK, 0 rows affected (0.16 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from emp;
++------+-------+---------+------+------+
+| id   | name  | salary  | pf   | dept |
++------+-------+---------+------+------+
+|  222 | naga  | 2000.00 |   20 | NULL |
+|  223 | Arjun | 3000.00 |   20 | NULL |
+|  224 | Reddy | 6000.00 |   20 | NULL |
++------+-------+---------+------+------+
+3 rows in set (0.00 sec)
+
+mysql> update emp set dept='testing' where id=222;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp;
++------+-------+---------+------+---------+
+| id   | name  | salary  | pf   | dept    |
++------+-------+---------+------+---------+
+|  222 | naga  | 2000.00 |   20 | testing |
+|  223 | Arjun | 3000.00 |   20 | NULL    |
+|  224 | Reddy | 6000.00 |   20 | NULL    |
++------+-------+---------+------+---------+
+3 rows in set (0.00 sec)
+
+mysql> update emp set dept='dev' where id=223;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update emp set dept='java' where id=224;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp;
++------+-------+---------+------+---------+
+| id   | name  | salary  | pf   | dept    |
++------+-------+---------+------+---------+
+|  222 | naga  | 2000.00 |   20 | testing |
+|  223 | Arjun | 3000.00 |   20 | dev     |
+|  224 | Reddy | 6000.00 |   20 | java    |
++------+-------+---------+------+---------+
+3 rows in set (0.00 sec)
+
+mysql> alter table emp rename column dept to dep;
+Query OK, 0 rows affected (0.16 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from emp;
++------+-------+---------+------+---------+
+| id   | name  | salary  | pf   | dep     |
++------+-------+---------+------+---------+
+|  222 | naga  | 2000.00 |   20 | testing |
+|  223 | Arjun | 3000.00 |   20 | dev     |
+|  224 | Reddy | 6000.00 |   20 | java    |
++------+-------+---------+------+---------+
+3 rows in set (0.00 sec)
+
+mysql> update emp set dep='test' where id=222;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp;
++------+-------+---------+------+------+
+| id   | name  | salary  | pf   | dep  |
++------+-------+---------+------+------+
+|  222 | naga  | 2000.00 |   20 | test |
+|  223 | Arjun | 3000.00 |   20 | dev  |
+|  224 | Reddy | 6000.00 |   20 | java |
++------+-------+---------+------+------+
+3 rows in set (0.00 sec)
+
+mysql> select salary *10/100 as pf from emp;'
++------------+
+| pf         |
++------------+
+| 200.000000 |
+| 300.000000 |
+| 600.000000 |
++------------+
+3 rows in set (0.00 sec)
+
+    '>
+    '> ^C
+mysql> select salary *10/100 as pf from emp;'
++------------+
+| pf         |
++------------+
+| 200.000000 |
+| 300.000000 |
+| 600.000000 |
++------------+
+3 rows in set (0.00 sec)
+
+    '> select salary *10/100 as pf from emp;
+    '> ^C
+mysql> select salary *10/100 as pf from emp;
++------------+
+| pf         |
++------------+
+| 200.000000 |
+| 300.000000 |
+| 600.000000 |
++------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp;
++------+-------+---------+------+------+
+| id   | name  | salary  | pf   | dep  |
++------+-------+---------+------+------+
+|  222 | naga  | 2000.00 |   20 | test |
+|  223 | Arjun | 3000.00 |   20 | dev  |
+|  224 | Reddy | 6000.00 |   20 | java |
++------+-------+---------+------+------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp where sal<=2000;
+ERROR 1054 (42S22): Unknown column 'sal' in 'where clause'
+mysql> select * from emp where salary<=2000;
++------+------+---------+------+------+
+| id   | name | salary  | pf   | dep  |
++------+------+---------+------+------+
+|  222 | naga | 2000.00 |   20 | test |
++------+------+---------+------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp where salary<2000;
+Empty set (0.00 sec)
+
+mysql> select * from emp where salary>2000;
++------+-------+---------+------+------+
+| id   | name  | salary  | pf   | dep  |
++------+-------+---------+------+------+
+|  223 | Arjun | 3000.00 |   20 | dev  |
+|  224 | Reddy | 6000.00 |   20 | java |
++------+-------+---------+------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from emp where salary>=2000;
++------+-------+---------+------+------+
+| id   | name  | salary  | pf   | dep  |
++------+-------+---------+------+------+
+|  222 | naga  | 2000.00 |   20 | test |
+|  223 | Arjun | 3000.00 |   20 | dev  |
+|  224 | Reddy | 6000.00 |   20 | java |
++------+-------+---------+------+------+
+3 rows in set (0.00 sec)
+
+mysql> select max(salary) from emp group by dep;
++-------------+
+| max(salary) |
++-------------+
+|     2000.00 |
+|     3000.00 |
+|     6000.00 |
++-------------+
+3 rows in set (0.00 sec)
+
+mysql> select distinct(salary) from emp;
++---------+
+| salary  |
++---------+
+| 2000.00 |
+| 3000.00 |
+| 6000.00 |
++---------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp;
++------+-------+---------+------+------+
+| id   | name  | salary  | pf   | dep  |
++------+-------+---------+------+------+
+|  222 | naga  | 2000.00 |   20 | test |
+|  223 | Arjun | 3000.00 |   20 | dev  |
+|  224 | Reddy | 6000.00 |   20 | java |
++------+-------+---------+------+------+
+3 rows in set (0.00 sec)
+
+mysql> insert into values(225,subbu,7000,20,test);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'values(225,subbu,7000,20,test)' at line 1
+mysql> insert into values(225,'subbu',7000,20,'test');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'values(225,'subbu',7000,20,'test')' at line 1
+mysql> insert into emp values(225,"subbu",7000,20,"test");
+Query OK, 1 row affected (0.14 sec)
+
+mysql> select * from emp;
++------+-------+---------+------+------+
+| id   | name  | salary  | pf   | dep  |
++------+-------+---------+------+------+
+|  222 | naga  | 2000.00 |   20 | test |
+|  223 | Arjun | 3000.00 |   20 | dev  |
+|  224 | Reddy | 6000.00 |   20 | java |
+|  225 | subbu | 7000.00 |   20 | test |
++------+-------+---------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> select max(salary) from emp group by dep;
++-------------+
+| max(salary) |
++-------------+
+|     7000.00 |
+|     3000.00 |
+|     6000.00 |
++-------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp;
++------+-------+---------+------+------+
+| id   | name  | salary  | pf   | dep  |
++------+-------+---------+------+------+
+|  222 | naga  | 2000.00 |   20 | test |
+|  223 | Arjun | 3000.00 |   20 | dev  |
+|  224 | Reddy | 6000.00 |   20 | java |
+|  225 | subbu | 7000.00 |   20 | test |
++------+-------+---------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> select name from emp groupby dep;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dep' at line 1
+mysql> select name from emp group by dep;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'naga.emp.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select max(sal) from emp group by dep;
+ERROR 1054 (42S22): Unknown column 'sal' in 'field list'
+mysql>
+mysql> select max(salary) from emp group by dep;
++-------------+
+| max(salary) |
++-------------+
+|     7000.00 |
+|     3000.00 |
+|     6000.00 |
++-------------+
+3 rows in set (0.00 sec)
+
+mysql> select name max(salary) from emp group by dep;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'max(salary) from emp group by dep' at line 1
+mysql> select name,max(salary) from emp group by dep;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'naga.emp.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select name , max(salary) from emp group by dep;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'naga.emp.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select max(salary) from emp group by dep;
++-------------+
+| max(salary) |
++-------------+
+|     7000.00 |
+|     3000.00 |
+|     6000.00 |
++-------------+
+3 rows in set (0.00 sec)
+
+mysql> select name,max(salary) from emp group by dep;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'naga.emp.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select name ,max(salary) from emp group by dep;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'naga.emp.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select name , max(salary) from emp group by dep;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'naga.emp.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select name,max(salary) from emp group by dep;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'naga.emp.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select * from emp;
++------+-------+---------+------+------+
+| id   | name  | salary  | pf   | dep  |
++------+-------+---------+------+------+
+|  222 | naga  | 2000.00 |   20 | test |
+|  223 | Arjun | 3000.00 |   20 | dev  |
+|  224 | Reddy | 6000.00 |   20 | java |
+|  225 | subbu | 7000.00 |   20 | test |
++------+-------+---------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp where dep='test' group by dep;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'naga.emp.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> SELECT dep, COUNT(*) AS employee_count, AVG(salary) AS average_salary
+    -> FROM emp
+    -> WHERE dep = 'test'
+    -> GROUP BY dep;
++------+----------------+----------------+
+| dep  | employee_count | average_salary |
++------+----------------+----------------+
+| test |              2 |    4500.000000 |
++------+----------------+----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT id, name, salary, dep, 'test' AS group_label
+    -> FROM emp
+    -> WHERE dep = 'test'
+    -> UNION ALL
+    -> SELECT id, name, salary, dep, 'other' AS group_label
+    -> FROM emp
+    -> WHERE dep != 'test';
++------+-------+---------+------+-------------+
+| id   | name  | salary  | dep  | group_label |
++------+-------+---------+------+-------------+
+|  222 | naga  | 2000.00 | test | test        |
+|  225 | subbu | 7000.00 | test | test        |
+|  223 | Arjun | 3000.00 | dev  | other       |
+|  224 | Reddy | 6000.00 | java | other       |
++------+-------+---------+------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT id, name, salary, dep, 'test' AS group_label
+    -> FROM emp
+    -> WHERE dep = 'test'
+    -> UNION ALL
+    -> SELECT id, name, salary, dep, 'other' AS group_label
+    -> FROM emp
+    -> WHERE dep != 'test';
++------+-------+---------+------+-------------+
+| id   | name  | salary  | dep  | group_label |
++------+-------+---------+------+-------------+
+|  222 | naga  | 2000.00 | test | test        |
+|  225 | subbu | 7000.00 | test | test        |
+|  223 | Arjun | 3000.00 | dev  | other       |
+|  224 | Reddy | 6000.00 | java | other       |
++------+-------+---------+------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp where group_label='test'
+    -> ;
+ERROR 1054 (42S22): Unknown column 'group_label' in 'where clause'
+mysql> select * from emp where dep='test';
++------+-------+---------+------+------+
+| id   | name  | salary  | pf   | dep  |
++------+-------+---------+------+------+
+|  222 | naga  | 2000.00 |   20 | test |
+|  225 | subbu | 7000.00 |   20 | test |
++------+-------+---------+------+------+
+2 rows in set (0.00 sec)
+
+mysql>

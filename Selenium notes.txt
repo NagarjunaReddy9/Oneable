@@ -1,0 +1,1210 @@
+describe("adactin", function () {
+    it("login valid credentials", function () {
+
+        browser.get("https://bltestapp.in/");
+        browser.manage().window().maximize()
+        browser.sleep(3000);
+      
+        var elementToMoveTo = element(by.xpath('/html/body/app-root/app-public-content-layout/app-header-one/header/div[3]/div/div/div/div[2]/div[2]/app-public-settings/div/ul/li[4]'));
+        browser.actions().mouseMove(elementToMoveTo).perform();
+        browser.sleep(3000);
+        var log = element(by.xpath('/html/body/app-root/app-public-content-layout/app-header-one/header/div[3]/div/div/div/div[2]/div[2]/app-public-settings/div/ul/li[4]/div[2]/ul/li'))
+        log.click();
+        browser.sleep(4000);
+
+       it(" valid credentials", function () {
+
+        var username=  element(by.xpath('//input[@formcontrolname="emailid"]'))
+        browser.sleep(3000);
+        username.sendKeys('289023845');
+        var pwd = element(by.css('[formcontrolname="password"]'))
+        pwd.sendKeys('naveen@123')
+        browser.sleep(3000);
+        var sign = element(by.xpath('//button[@class="btn btn-solid btn-block btn-sign"]'))
+        sign.click();
+        browser.sleep(3000);
+       })
+
+        var profile = element(by.xpath('(//a[@class="sidebar-header ng-star-inserted"])[1]'))
+        browser.sleep(3000);
+        profile.click();
+        browser.sleep(3000);
+
+        var quickorder = element(by.xpath('(//a[@class="sidebar-header ng-star-inserted"])[7]'))
+        quickorder.click()
+        browser.sleep(3000);
+        element(by.xpath('//*[@id="purchase-cart"]/div/div/div/div/div/div[1]/table/tbody/tr[5]/td[4]/button')).click();
+        browser.sleep(3000);
+        for(let i=0;i<3;i++){
+        var adding = element(by.css('div.plus'));
+        adding.click();
+        }
+       browser.sleep(2000);
+
+
+        browser.executeScript('window.scrollBy(100,900);')
+        browser.sleep(3000);
+
+        var proceed = element(by.xpath('//button[text()="Procced"]'))
+        browser.actions().mouseMove(proceed).perform();
+        browser.sleep(3000);
+        proceed.click();
+        browser.actions().mouseMove(proceed).perform();
+        browser.sleep(3000);
+
+        var addaddress = element(by.xpath('//*[@id="purchase-cart"]/div/div/div/div/div/div[2]/div/div[1]/div[2]/button'))
+        browser.actions().mouseMove(addaddress).perform()
+        addaddress.click();
+        browser.sleep(3000);
+        
+        element(by.xpath('//input[@formcontrolname="name"]')).sendKeys("nagarjuna");
+        browser.sleep(3000);
+        element(by.xpath('//input[@formcontrolname="mobile"]')).sendKeys("3456789123");
+        element(by.css('[formcontrolname="email"]')).sendKeys("nagarjuna123@gmail.com");
+        browser.sleep(3000);
+        element(by.css('[formcontrolname="pincode"]')).sendKeys("518593");
+        var cityDropdown = element(by.css('[formcontrolname="city"]'));
+        browser.wait(ExpectedConditions.elementToBeClickable(cityDropdown), 5000, 'City dropdown not clickable');
+        cityDropdown.click();
+        var cityOption = element(by.xpath('//option[@value="S.Nagulavaram"]'));
+        browser.wait(ExpectedConditions.visibilityOf(cityOption), 5000, 'City option not visible');
+        cityOption.click();
+        element(by.css('[formcontrolname="address"]')).sendKeys("verify");
+        browser.sleep(6000);
+        var submitButton = element(by.xpath('/html/body/ngb-modal-window/div/div/div[2]/app-address-add/div/div/div/form/div[2]/button'));
+        browser.actions().mouseMove(submitButton).perform();
+        submitButton.click();
+        browser.sleep(6000);
+        element(by.xpath('//button[@class="swal2-confirm swal2-styled"]')).click();
+        browser.sleep(6000);
+
+        browser.executeScript('window.scrollBy(100,1500);')
+        browser.sleep(6000);
+
+        var purchage=  element(by.xpath('//input[@id="Purchase Wallet"]'))
+        browser.sleep(6000);
+        purchage.click();
+
+        var netAmountElement = element(by.xpath("//div[text()='Net Amount :']/following-sibling::div"));
+        netAmountElement.getText().then(function(netAmountText) {
+        console.log("Net Amount:", netAmountText);
+        var textFieldElement = element(by.xpath('(//input[@placeholder="Enter Amount"])[1]'));
+        textFieldElement.clear();
+        textFieldElement.sendKeys(netAmountText);
+
+        browser.sleep(3000);
+        element(by.xpath('//input[@placeholder="Transaction Password"]')).sendKeys("naveen@123");
+        browser.sleep(3000);
+
+        browser.executeScript('window.scrollBy(100,500);')
+
+        var placeorder=element(by.xpath('//*[@class="btn btn-solid btn-sm"]'))
+        browser.sleep(3000);
+        placeorder.click();
+        browser.executeScript('window.scrollBy(100,900);')
+        browser.sleep(3000);
+    });
+
+          });
+      });
+      
+    
+
+    
+exports.config = {
+    directConnect: true,
+    capabilities: {
+        'browserName': 'chrome'
+    },
+    framework: 'jasmine',
+    specs: ['test.js'],
+    jasmineNodeOpts: {
+        defaultTimeoutInterval: 80000
+    },
+    onPrepare: function() {
+        browser.ignoreSynchronization = true;
+    }
+}
+*************************************************************************************************************************
+
+
+
+describe("Blulife", function () {
+    it("login valid credentials", function () {
+
+       browser.get("https://bltestapp.in/");
+        browser.manage().window().maximize()
+        browser.sleep(3000);
+        var elementToMoveTo = element(by.xpath('/html/body/app-root/app-public-content-layout/app-header-one/header/div[3]/div/div/div/div[2]/div[2]/app-public-settings/div/ul/li[4]'));
+        browser.actions().mouseMove(elementToMoveTo).perform();
+        browser.sleep(3000);
+        var log = element(by.xpath('/html/body/app-root/app-public-content-layout/app-header-one/header/div[3]/div/div/div/div[2]/div[2]/app-public-settings/div/ul/li[4]/div[2]/ul/li'))
+        log.click();
+        browser.sleep(3000);
+        element(by.xpath('//input[@formcontrolname="emailid"]')).sendKeys('638126572')
+        browser.sleep(3000);
+        var pwd = element(by.css('[formcontrolname="password"]'))
+        pwd.sendKeys('Raju@123')
+        browser.sleep(3000);
+        var sign = element(by.xpath('//button[@class="btn btn-solid btn-block btn-sign"]'))
+        sign.click();
+        describe("Blulife", function () {
+          it("login valid credentials", function () {
+      
+        browser.sleep(3000);
+        element(by.xpath('/html/body/app-root/app-content-layout/div/div/div/div[1]/app-sidebar/div[2]/ul/li[8]/a')).click()
+        browser.sleep(3000);
+        element(by.xpath('/html/body/app-root/app-content-layout/div/div/div/div[1]/app-sidebar/div[2]/ul/li[8]/ul/li[2]/a')).click()
+        browser.sleep(3000);
+        element(by.xpath('//button[@type="submit"]')).click();
+        browser.sleep(3000);
+          })
+        element(by.xpath('//input[@formcontrolname="depositamt"]')).sendKeys("10000");
+        element(by.xpath('//input[@formcontrolname="referenceno"]')).sendKeys("3456789");
+        element(by.xpath('//*[@formcontrolname="transactionsource"]')).click();
+        element(by.xpath('//option[@value="SBI"]')).click();
+        browser.sleep(3000);
+        element(by.css('[type="date"]')).sendKeys("07/03/2024");
+        browser.sleep(3000);
+        element(by.xpath('//*[@id="Wallet_Request_Form"]/div/div/div/form/div[5]/div/div/button')).click();
+        browser.sleep(3000)
+       
+        const path = require('path');
+        
+        
+        const filePath='C:\\Users\\nm22220\\Pictures\\Screenshots\\Screenshot (3).png'
+          const fileInput = element(by.css('input[type="file"]'));
+          const absolutePath = path.resolve(__dirname, filePath);
+        
+          browser.sleep(3000)
+         browser.actions().mouseMove(fileInput).perform();
+         browser.sleep(3000)
+           browser.actions().sendKeys(absolutePath).perform();
+           browser.sleep(3000)
+        
+      
+        
+
+      
+            });
+        });
+        
+      });
+	  
+	  
+	  exports.config = {
+    directConnect: true,
+    capabilities: {
+        'browserName': 'chrome'
+    },
+    framework: 'jasmine',
+    specs: ['test1.js'],
+    jasmineNodeOpts: {
+        defaultTimeoutInterval: 60000
+    },
+    onPrepare: function() {
+        browser.ignoreSynchronization = true;
+    }
+}
+******************************************************************************************
+selenium java
+package E_domain;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.util.Random;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+
+     public class BluLife_Project {
+	WebDriver driver;
+		Random random = new Random();
+		 int min = 10000;
+	        int max = 99999;
+	@Test
+	public void launch() throws InterruptedException, AWTException {
+
+		driver = new ChromeDriver();
+		driver.get("https://bltestapp.in/");
+		driver.manage().window().maximize();
+		Actions a = new Actions(driver);
+		Thread.sleep(3000);
+
+		WebElement ele = driver.findElement(By.xpath(
+				"/html/body/app-root/app-public-content-layout/app-header-one/header/div[3]/div/div/div/div[2]/div[2]/app-public-settings/div/ul/li[4]"));
+		a.moveToElement(ele).perform();
+		WebElement ele1 = driver.findElement(By.xpath(
+				"/html/body/app-root/app-public-content-layout/app-header-one/header/div[3]/div/div/div/div[2]/div[2]/app-public-settings/div/ul/li[4]/div[2]/ul/li/a"));
+		ele1.click();
+
+		driver.findElement(By.xpath("//input[@formcontrolname=\"emailid\"]")).sendKeys("289023845");
+
+		driver.findElement(By.xpath("//input[@placeholder=\"Password\"]")).sendKeys("naveen@123");
+		driver.findElement(By.xpath("//button[@class=\"btn btn-solid btn-block btn-sign\"]")).click();
+		Thread.sleep(3000);
+		driver.findElement(
+				By.xpath("/html/body/app-root/app-content-layout/div/div/div/div[1]/app-sidebar/div[2]/ul/li[8]/a"))
+				.click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(
+				"/html/body/app-root/app-content-layout/div/div/div/div[1]/app-sidebar/div[2]/ul/li[8]/ul/li[2]/a"))
+				.click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
+		driver.findElement(By.xpath("//input[@placeholder=\"Amount\"]")).sendKeys("10000");
+		
+		driver.findElement(By.xpath("//input[@placeholder=\"Reference No\"]")).sendKeys(String.valueOf(random.nextInt(max - min + 1) + min));
+		driver.findElement(By.xpath("//*[@formcontrolname=\"transactionsource\"]")).click();
+		driver.findElement(By.xpath("//*[@id=\"Wallet_Request_Form\"]/div/div/div/form/div[3]/div/select/option[3]"))
+				.click();
+		driver.findElement(By.xpath("//*[@type=\"date\"]")).sendKeys("11/03/2024");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[@class=\"btn btn-solid btn-xs\"][1]")).click();
+		Thread.sleep(3000);
+		Robot robot = new Robot();
+		Thread.sleep(4000);
+		File file = new File("D:\\Screenshots\\Screenshot (2).png");
+		StringSelection stringSelection = new StringSelection(file.getAbsolutePath());
+
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+
+		Thread.sleep(1000);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		Thread.sleep(1000);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		Thread.sleep(1000);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		Thread.sleep(1000);
+		robot.keyPress(KeyEvent.VK_V);
+		Thread.sleep(1000);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		Thread.sleep(1000);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//*[@class=\"btn btn-solid btn-xs\"][1]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@class=\"swal2-confirm swal2-styled\"]")).click();
+		Thread.sleep(2000);
+
+		driver.get("https://admin.bltestapp.in/");
+		Thread.sleep(2000);
+		driver.manage().window().maximize();
+		driver.findElement(By.xpath("//input[@placeholder=\"Username\"]")).sendKeys("admin");
+		driver.findElement(By.xpath("//*[@formcontrolname=\"Password\"]")).sendKeys("blulife#2024");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@type=\"submit\"]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@class=\"swal2-confirm swal2-styled\"]")).click();
+
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@id=\"sidebar-nav\"]/li[6]/a")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@id=\"141\"]/li[2]/a")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//button[@type=\"submit\"][1]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/div[2]/div/div[4]/textarea"))
+				.sendKeys("yes approved");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/div[2]/div/div[5]/button[1]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@class=\"swal2-confirm swal2-styled\"]")).click();
+
+	}
+};
+
+
+package E_domain;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class admin {
+	WebDriver driver;
+	@Test
+	public void adminlaunch() throws InterruptedException {
+		driver=new ChromeDriver();
+		driver.get("https://admin.bltestapp.in/");
+		Thread.sleep(2000);
+		driver.manage().window().maximize();
+		 driver.findElement(By.xpath("//input[@placeholder=\"Username\"]")).sendKeys("admin");
+		 driver.findElement(By.xpath("//*[@formcontrolname=\"Password\"]")).sendKeys("blulife#2024");
+			Thread.sleep(2000);
+		 driver.findElement(By.xpath("//*[@type=\"submit\"]")).click();
+			Thread.sleep(2000);
+		 driver.findElement(By.xpath("//*[@class=\"swal2-confirm swal2-styled\"]")).click();
+		 
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//*[@id=\"sidebar-nav\"]/li[6]/a")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//*[@id=\"141\"]/li[2]/a")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//button[@type=\"submit\"][1]")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/div[2]/div/div[4]/textarea")).sendKeys("yes approved");
+			Thread.sleep(2000);
+		 driver.findElement(By.xpath("//button[@class=\"btn btn-primary btn-xs\"][1]")).click();
+			Thread.sleep(2000);
+		 driver.findElement(By.xpath("//*[@class=\"swal2-confirm swal2-styled\"]")).click();
+	}
+}
+**********************************************************************************************************************
+
+
+package E_domain;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class admin {
+	WebDriver driver;
+	@Test
+	public void adminlaunch() throws InterruptedException {
+		driver=new ChromeDriver();
+		driver.get("https://admin.bltestapp.in/");
+		Thread.sleep(2000);
+		driver.manage().window().maximize();
+		 driver.findElement(By.xpath("//input[@placeholder=\"Username\"]")).sendKeys("admin");
+		 driver.findElement(By.xpath("//*[@formcontrolname=\"Password\"]")).sendKeys("blulife#2024");
+			Thread.sleep(2000);
+		 driver.findElement(By.xpath("//*[@type=\"submit\"]")).click();
+			Thread.sleep(2000);
+		 driver.findElement(By.xpath("//*[@class=\"swal2-confirm swal2-styled\"]")).click();
+		 
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//*[@id=\"sidebar-nav\"]/li[6]/a")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//*[@id=\"141\"]/li[2]/a")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//button[@type=\"submit\"][1]")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/div[2]/div/div[4]/textarea")).sendKeys("yes approved");
+			Thread.sleep(2000);
+		 driver.findElement(By.xpath("//button[@class=\"btn btn-primary btn-xs\"][1]")).click();
+			Thread.sleep(2000);
+		 driver.findElement(By.xpath("//*[@class=\"swal2-confirm swal2-styled\"]")).click();
+	}
+}
+
+
+package E_domain;
+
+import static org.testng.Assert.assertEquals;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+
+
+public class ValidationAppium {
+
+	AndroidDriver driver;
+
+	@Test
+
+	public void app() throws MalformedURLException, InterruptedException {
+
+		UiAutomator2Options options = new UiAutomator2Options();
+		options.setDeviceName("nani");
+		options.setApp("C:\\Users\\nm22220\\Downloads\\General-Store.apk");
+
+		driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(70));
+	//	driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("amulya");
+		driver.hideKeyboard();
+driver.findElement(By.xpath("//android.widget.RadioButton[@resource-id=\"com.androidsample.generalstore:id/radioFemale\"]")).click();
+		driver.findElement(By.id("android:id/text1")).click();
+		driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"India\"));"));
+		driver.findElement(By.xpath("//android.widget.TextView[@resource-id=\"android:id/text1\" and @text=\"India\"]")).click();
+		driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
+		 Thread.sleep(3000);
+		 String msg=driver.findElement(By.xpath("//android.widget.Toast[@text=\"Please enter your name\"]")).getAttribute("name");
+		Assert.assertEquals(msg, "please your name");
+		
+
+	}
+
+}
+
+
+package E_domain;
+
+import static org.testng.Assert.assertEquals;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+
+
+public class ValidationAppium {
+
+	AndroidDriver driver;
+
+	@Test
+
+	public void app() throws MalformedURLException, InterruptedException {
+
+		UiAutomator2Options options = new UiAutomator2Options();
+		options.setDeviceName("nani");
+		options.setApp("C:\\Users\\nm22220\\Downloads\\General-Store.apk");
+
+		driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(70));
+	//	driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("amulya");
+		driver.hideKeyboard();
+driver.findElement(By.xpath("//android.widget.RadioButton[@resource-id=\"com.androidsample.generalstore:id/radioFemale\"]")).click();
+		driver.findElement(By.id("android:id/text1")).click();
+		driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"India\"));"));
+		driver.findElement(By.xpath("//android.widget.TextView[@resource-id=\"android:id/text1\" and @text=\"India\"]")).click();
+		driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
+		 Thread.sleep(3000);
+		 String msg=driver.findElement(By.xpath("//android.widget.Toast[@text=\"Please enter your name\"]")).getAttribute("name");
+		Assert.assertEquals(msg, "please your name");
+		
+
+	}
+
+}
+
+
+****************************************************************************************************************************
+Test ng with mobile testing
+
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>MobileTestNG</groupId>
+	<artifactId>MobileTestNG</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>MobileTestNG</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.appium</groupId>
+			<artifactId>java-client</artifactId>
+			<version>9.0.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.7.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!--
+		https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>4.16.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>5.0.9</version>
+		</dependency>
+		<!--
+		https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>2.22.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.relevantcodes</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>2.41.2</version>
+		</dependency>
+
+
+	
+	</dependencies>
+</project>
+package utilities;
+
+import java.io.File;
+import java.io.IOException;
+import java.time.Duration;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.io.Files;
+
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.AndroidDriver;
+
+public class ReuasbleMethods {
+	public AndroidDriver driver;
+
+	public ReuasbleMethods(AndroidDriver driver) {
+		this.driver = driver;
+	}
+
+	public void longPress(WebElement element) {
+		((JavascriptExecutor) driver).executeScript("mobile: longClickGesture",
+				ImmutableMap.of("elementId", ((RemoteWebElement) element).getId()));
+	}
+
+	public void scrollIntoElement(String text) {
+		driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))"
+				+ ".scrollIntoView(new UiSelector().textContains(\"" + text + "\"))")).click();
+
+	}
+
+	public void dragGesture(WebElement element) {
+		// Java
+		((JavascriptExecutor) driver).executeScript("mobile: dragGesture",
+				ImmutableMap.of("elementId", ((RemoteWebElement) element).getId(), "endX", 100, "endY", 100));
+	}
+
+	public void SwipeGesture() {
+		// Java
+		((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of("left", 100, "top", 100,
+				"width", 200, "height", 200, "direction", "left", "percent", 0.75));
+	}
+
+	public void implicitWait() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	}
+
+	public void max() {
+		driver.manage().window().maximize();
+	}
+
+	public void min() {
+		driver.manage().window().minimize();
+	}
+
+	public void forward1() {
+		driver.navigate().forward();
+	}
+
+	public void back1() {
+		driver.navigate().back();
+	}
+
+	public void refresh1() {
+		driver.navigate().refresh();
+	}
+
+	public void Screenshot() throws IOException {
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File src = ts.getScreenshotAs(OutputType.FILE);
+
+		File dest = new File("./screenshots/index2.png");
+
+		Files.copy(src, dest);
+
+	}
+
+	public void generateReports(String reportName) {
+		String path = "./screenshots/" + reportName + ".html";
+		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
+		reporter.config().setReportName("Appium results");
+		reporter.config().setDocumentTitle("Appium Project");
+
+	}
+
+	public void reports(String reportName) {
+		String path = "./reports/" + reportName + ".html";
+		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
+		reporter.config().setReportName("Appium results");
+		reporter.config().setDocumentTitle("Appium Project");
+
+	}
+};
+
+
+
+package TestCases;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.sql.Driver;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+
+public class BaseClass {
+	AndroidDriver driver;
+	public ExtentReports report;
+	public ExtentTest test;
+
+	@BeforeClass
+	public void setUp() throws MalformedURLException {
+		report = new ExtentReports("C:\\Users\\nm22220\\eclipse-workspace\\MobileTestNG\\reports\\Appium.html");
+		test = report.startTest("Mobile");
+		UiAutomator2Options options = new UiAutomator2Options();
+		options.setDeviceName("mobile");
+		options.setApp("C:\\Users\\nm22220\\Downloads\\General-Store.apk");
+		
+		driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+
+	}
+
+	@AfterClass
+	public void tearDown() {
+		driver.quit();
+		report.endTest(test);
+		report.flush();
+	}
+}
+
+
+package pageObjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import utilities.ReuasbleMethods;
+
+public class LoginPageElements  {
+	AndroidDriver driver;
+	public LoginPageElements(AndroidDriver driver)
+	{
+		this.driver=driver;
+		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+
+}
+	
+	@AndroidFindBy(id="com.androidsample.generalstore:id/nameField")
+	public WebElement NameTxtField;
+	
+	
+	@AndroidFindBy (xpath="//android.widget.RadioButton[@resource-id=\"com.androidsample.generalstore:id/radioFemale\"]")
+	public WebElement Radiobtnfield;
+	
+	@AndroidFindBy(id="android:id/text1")
+	private WebElement CountryDorpDown;
+	
+	 @AndroidFindBy(id="com.androidsample.generalstore:id/btnLetsShop")
+	 public WebElement LetsGo;
+	 
+	 
+	 public void setNameField(String name)
+		{
+			NameTxtField.sendKeys(name);
+		    driver.hideKeyboard();
+		}
+	 public void Radiobutton() {
+		 Radiobtnfield.click();
+		 
+	 }
+	  public void contry() {
+
+		  CountryDorpDown.click();
+		  
+	  }
+	
+	 		 
+   public void letsgo() {
+		 LetsGo.click(); 
+	 }
+
+
+	 
+	 
+}
+	 
+	 
+	
+package TestCases;
+
+import java.io.IOException;
+import java.time.Duration;
+
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.relevantcodes.extentreports.LogStatus;
+
+import pageObjects.LoginPageElements;
+
+import utilities.ReuasbleMethods;
+
+public class LoginPageImplements extends BaseClass {
+
+	@Test
+	public void fillForm() throws InterruptedException, IOException {
+		WebDriverWait web = new WebDriverWait(driver, Duration.ofSeconds(10));
+		LoginPageElements se = new LoginPageElements(driver);
+		ReuasbleMethods re = new ReuasbleMethods(driver);
+		re.implicitWait();
+		se.setNameField("ojas123");
+		se.Radiobutton();
+		Thread.sleep(2000);
+		se.contry();
+		re.scrollIntoElement("India");
+		test.log(LogStatus.PASS, "India selected");
+		se.letsgo();
+		re.Screenshot();
+	
+	}
+
+};
+**************************************************************************************************************************
+
+Testng
+
+congig,
+configuration.prperties
+url      =https://bltestapp.in/login
+username =289023845 
+password =naveen@123
+
+ package Utilities;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+public class Readconfig {
+	Properties pro;
+	
+	public  Readconfig ()  {
+		File f=new File("./config/configuration.properties");
+		try {
+			FileInputStream fis=new FileInputStream(f);
+			pro=new Properties();
+			pro.load(fis);
+		} catch (Exception e) {
+			System.out.println("exception is"+e.getMessage());
+			
+		}
+		
+	}	
+
+	
+	public  String getUrl(){
+		String baseUrl=pro.getProperty("url");
+		return baseUrl;
+		
+	}
+	
+	
+	public  String getUsername(){
+		String un=pro.getProperty("username");
+		return un;
+		
+	}
+
+	public  String getPassword(){
+		String pwd=pro.getProperty("password");
+		return pwd; 
+		
+	}
+
+	
+}
+
+package Utilities;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+
+import com.google.common.io.Files;
+
+public class Reusable {
+	WebDriver driver;
+	public Reusable(WebDriver driver) {
+		this.driver=driver;
+	}
+
+	public String screenShot(String filename) throws IOException {
+		TakesScreenshot ts= (TakesScreenshot)driver;
+		File src=ts.getScreenshotAs(OutputType.FILE);
+		File target = new File("./Screenshot/"+filename+".png");
+		Files.copy(src, target);
+		String path=target.getAbsolutePath();
+		return path;
+
+}
+}
+package TestCases;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+
+import Utilities.Readconfig;
+
+public class BaseClass {
+	public  static WebDriver driver;
+	public static ExtentReports extent;
+	public static ExtentTest test;
+
+	Readconfig rc = new Readconfig();
+	public String urlhome = rc.getUrl();
+	public String username = rc.getUsername();
+	public String password = rc.getPassword();
+
+	@BeforeSuite
+	public void launch() throws InterruptedException {
+		extent = new ExtentReports("./reports/adactin.html");
+		test = extent.startTest("login");
+		driver = new ChromeDriver();
+		driver.get(urlhome);
+		Thread.sleep(2000);
+		driver.manage().window().maximize();
+
+	}
+
+	@AfterSuite
+	public void closeApp() {
+		//driver.close();
+		extent.endTest(test);
+		extent.flush();
+
+	}
+
+}
+
+
+package PageObject;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class ElementsStrore {
+ WebDriver driver;
+ public ElementsStrore(WebDriver driver) {
+	 this.driver=driver;
+	 PageFactory.initElements(driver,this);
+	 
+ }
+ @FindBy(xpath = "//*[@placeholder=\"User Name\"]")
+ WebElement user;
+ 
+ @FindBy(xpath = "//*[@placeholder=\"Password\"]")
+ WebElement pass;
+  @FindBy(xpath = "//*[@class=\"btn btn-solid btn-block btn-sign\"]")
+  WebElement log;
+ 
+ public void emailName(String name) {
+	 user.sendKeys(name);
+ }
+
+ public void emaipwd(String pwd) {
+	pass.sendKeys(pwd);
+ }
+ 
+ public void login() {
+	log.click();
+ }
+}
+package TestCases;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import PageObject.ElementsStrore;
+import Utilities.Reusable;
+
+public class Login extends BaseClass{
+	@Test
+	public void test() throws IOException {
+		ElementsStrore lg=new ElementsStrore(driver);
+		
+		lg.emailName(username);
+		lg.emaipwd(password);
+		lg.login();
+		
+		  Reusable re=new Reusable(driver); 
+		re.screenShot("khadar");
+		
+	}
+
+}
+******************************************************************************
+cucumber
+Features
+login.feature
+
+ Feature: login functionality
+ @smokeTest
+  Scenario:login successful valid credentials
+    Given user is login page
+  
+    When user enter username and password 
+    And  click on login page 
+    Then  user navigated to the homepage
+   
+    
+
+ package StepDefinitions;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class LoginSteps {
+	WebDriver driver;
+	@Given("user is login page")
+	public void user_is_login_page() {
+		driver = new ChromeDriver();
+		driver.get("https://adactinhotelapp.com/HotelAppBuild2/");
+	}
+
+	@When("user enter username and password")
+	public void user_enter_username_and_password() {
+		WebElement username = driver.findElement(By.xpath("//*[@name=\"username\"]"));
+		username.sendKeys("chandra12345");
+		WebElement password = driver.findElement(By.xpath("//*[@name=\"password\"]"));
+		password.sendKeys("Chandu");
+
+	    
+	}
+
+	@When("click on login page")
+	public void click_on_login_page() {
+		driver.findElement(By.xpath("//*[@name=\"login\"]")).click();
+
+	   
+	}
+
+	@Then("user navigated to the homepage")
+	public void user_navigated_to_the_homepage() {
+		System.out.println("login");
+	    
+	}
+
+
+
+
+}
+
+
+
+package TestRunner;
+
+import org.junit.runner.RunWith;
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(features = "C:\\Users\\nm22220\\eclipse-workspace\\nag\\Test1\\src\\test\\resources\\Features\\login.feature",
+  
+		glue = "StepDefinitions", monochrome = true,
+		dryRun = false,plugin = { "pretty",
+				"html:target\\naga.html" }, tags = "@smokeTest")
+
+
+public class TestRun {
+	
+
+}
+
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>Test1</groupId>
+	<artifactId>Test1</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!--
+		https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>4.17.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>7.15.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>7.14.0</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		
+	</dependencies>
+</project>
+  ******************************************************************
+  Read and write 
+  
+  package com.ojas.Ojas;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.annotations.Test;
+
+public class ReadData {
+	// public static void main(String[] args) throws Exception {
+	@Test
+	public void test() throws IOException {
+		File src = new File("C:\\Users\\nm22220\\Desktop\\latest.xlsx");
+		FileInputStream fis = new FileInputStream(src);
+		XSSFWorkbook wb = new XSSFWorkbook(fis);
+		XSSFSheet sheet = wb.getSheetAt(0);
+		int rowcount = sheet.getLastRowNum();
+        int columncount = sheet.getRow(0).getLastCellNum();
+        for (int i = 3; i <= rowcount; i++) {
+		for (int j = 0; j < columncount; j++) {
+		String data = sheet.getRow(i).getCell(j).toString();
+		System.out.print("data:" + data);
+			}
+		System.out.println();
+		}
+
+	}
+}
+
+
+package com.ojas.Ojas;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.annotations.Test;
+
+public class Write_data {
+@Test
+public void writedata() throws Exception {
+
+		String filePath = "C:\\Users\\nm22220\\Desktop\\writedata.xlsx";
+
+		XSSFWorkbook book = new XSSFWorkbook();
+
+		XSSFSheet sheet = book.createSheet("Sheet1");
+
+		String[][] data = { { "ID", "Name", "Salary" },
+                { "1", "Alice", "50000" },
+                { "2", "Bob", "60000" },
+				{ "3", "Carol", "70000" },
+                { "4","nag","80000"},
+                { "5","nag","80000"}
+                };
+
+		for (int i = 0; i < data.length; i++) {
+
+			Row row = sheet.createRow(i);
+
+			for (int j = 0; j < data[i].length; j++) {
+
+				row.createCell(j).setCellValue(data[i][j]);
+			}
+		}
+
+		FileOutputStream fos = new FileOutputStream(filePath);
+		book.write(fos);
+
+		fos.close();
+		book.close();
+
+		System.out.println("Data written to Excel file successfully.");
+	}
+}
+
