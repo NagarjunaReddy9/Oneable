@@ -1,0 +1,244 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>Test</groupId>
+	<artifactId>TestNgNew</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>TestNgNew</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!--
+		https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>4.15.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.8.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>5.0.9</version>
+		</dependency>
+		<dependency>
+			<groupId>com.relevantcodes</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>2.41.2</version>
+		</dependency>
+	</dependencies>
+</project>
+**************************************************************************************************************************
+url      =https://adactinhotelapp.com/HotelAppBuild2/
+username =Chandra12345 
+password =Chandu
+*************************************************************************************
+REusable methods 
+
+
+package Utilities;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+public class Readconfig {
+	Properties pro;
+	
+	public  Readconfig ()  {
+		File f=new File("./config/configuration.properties");
+		try {
+			FileInputStream fis=new FileInputStream(f);
+			pro=new Properties();
+			pro.load(fis);
+		} catch (Exception e) {
+			System.out.println("exception is"+e.getMessage());
+			
+		}
+		
+	}	
+
+	
+	public  String getUrl(){
+		String baseUrl=pro.getProperty("url");
+		return baseUrl;
+		
+	}
+	
+
+	public  String getUsername(){
+		String un=pro.getProperty("username");
+		return un;
+		
+	}
+
+	public  String getPassword(){
+		String pwd=pro.getProperty("password");
+		return pwd; 
+		
+	}
+
+	
+}
+
+
+
+@@@@
+package Utilities;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+
+import com.google.common.io.Files;
+
+public class Reusable {
+	WebDriver driver;
+	public Reusable(WebDriver driver) {
+		this.driver=driver;
+	}
+
+	public String screenShot(String filename) throws IOException {
+		TakesScreenshot ts= (TakesScreenshot)driver;
+		File src=ts.getScreenshotAs(OutputType.FILE);
+		File target = new File("./Screenshot/"+filename+".png");
+		Files.copy(src, target);
+		String path=target.getAbsolutePath();
+		return path;
+
+}
+}
+
+************************************************************************************************************
+
+implements
+package TestCases;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+
+import Utilities.Readconfig;
+
+public class BaseClass {
+	public  static WebDriver driver;
+	public static ExtentReports extent;
+	public static ExtentTest test;
+
+	Readconfig rc = new Readconfig();
+	public String urlhome = rc.getUrl();
+	public String username = rc.getUsername();
+	public String password = rc.getPassword();
+
+	@BeforeSuite
+	public void launch() throws InterruptedException {
+		extent = new ExtentReports("./reports/adactin.html");
+		test = extent.startTest("login");
+		driver = new ChromeDriver();
+		driver.get(urlhome);
+		Thread.sleep(2000);
+		driver.manage().window().maximize();
+
+	}
+
+	@AfterSuite
+	public void closeApp() {
+		driver.close();
+		extent.endTest(test);
+		extent.flush();
+
+	}
+
+}
+
+@@@@@@
+package TestCases;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import PageObject.ElementsStrore;
+import Utilities.Reusable;
+
+public class Login extends BaseClass{
+	@Test
+	public void test() throws IOException {
+		ElementsStrore lg=new ElementsStrore(driver);
+		lg.emailName(username);
+		lg.emaipwd(password);
+		lg.login();
+		Reusable re=new Reusable(driver);
+		re.screenShot("naga");
+		
+	}
+
+}
+**************************************************************************************************************************
+Elmets Store
+package PageObject;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class ElementsStrore {
+ WebDriver driver;
+ public ElementsStrore(WebDriver driver) {
+	 this.driver=driver;
+	 PageFactory.initElements(driver,this);
+	 
+ }
+ @FindBy(xpath = "//*[@id=\"username\"]")
+ WebElement user;
+ 
+ @FindBy(xpath = "//*[@id=\"password\"]")
+ WebElement pass;
+  @FindBy(xpath = "//*[@id=\"login\"]")
+  WebElement log;
+ 
+ public void emailName(String name) {
+	 user.sendKeys(name);
+ }
+
+ public void emaipwd(String pwd) {
+	pass.sendKeys(pwd);
+ }
+ 
+ public void login() {
+	log.click();
+ }
+}
+***************************************************************************************************************
+

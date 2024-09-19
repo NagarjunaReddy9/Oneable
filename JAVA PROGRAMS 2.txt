@@ -1,0 +1,743 @@
+1. Write a program to find Array maximum number?
+
+package pack1;
+
+public class Arraylargesmall {
+
+	public static void main(String[] args) {
+	
+			
+			int a[]=new int[] {100,200,300,400,500};
+			//int s=a[0];
+			int l=a[0];
+			for(int i=1;i<a.length;i++) {
+			
+			
+				if(a[i]>l) 
+				{
+				
+				l=a[i];
+				}
+				
+				
+			}
+				
+			
+			
+			System.out.println("Largest Number is : " + l);
+			//System.out.println("Smallest Number is : " + s);
+
+			
+			}}
+	        		
+*******************************************************************************************************
+2. Write a program to find Array minimum number?
+	
+package pack1;
+
+public class Arraysmall {
+public static void main(String[] args) {
+		
+		int a[]= {100,200,50,60,80,1000,50000,20};
+		int s=a[0];
+		
+		for(int i=1;i<a.length;i++) {
+		
+		
+			if(a[i]<s) {
+			
+			s=a[i];}
+			
+			
+		}
+		//System.out.println("Largest Number is : " + l);
+		System.out.println("Smallest Number is : " + s);
+
+		
+	}
+
+}
+***********************************************************************************************************************
+3. Write a program to find second maximum number?
+package pack1;
+
+public class Secondmax {
+
+	public static void main(String[] args) {
+	
+		int a[]=new int[] {100,50,10,500,1000,60};
+		
+		int max=a[0];
+		int secmax=a[0];
+		for(int i=0;i<a.length;i++) {
+		
+		
+			if(a[i]>max) 
+			{
+			
+				 secmax=max;
+	                max=a[i];
+			}
+			
+			 else if(a[i]>secmax)
+	            {
+	                secmax=a[i];
+	            }
+	        }
+	        System.out.println(secmax);
+
+
+				
+
+	}
+	}
+
+********************************************************************************************************
+4.package pack1;
+
+public class Sumofarray {
+	 public static void main(String[] args) {
+	        int a[]= {23,89,55,54,32,12,42};
+	        int sum=0;
+	        for(int i=0;i<a.length;i++) {
+	            sum=sum+a[i];
+	        }
+	        System.out.println("sum:"+sum);
+
+	 }
+}
+*************************************************************************************************************
+5.Write a program to find duplicate characters in an Array?
+
+
+package pack1;
+
+public class Duplicatechar {
+
+	public static void main(String[] args) {
+	
+	        String name="sravaniraju";
+	        char arr[]=name.toCharArray();
+	        int count=0;
+	        for(int i=0;i<name.length();i++)
+	        {
+	            for(int j=i+1;j<name.length();j++)
+	            {
+	                if(arr[i]==arr[j]) {
+	                    System.out.println(arr[j]+ " ");
+	                    count++;
+	                    break;
+		
+		}
+
+
+
+	}}}}
+******************************************************************************************************************
+6.Find length of string with out using length method?
+
+
+
+package pack1;
+
+public class Stringlength {
+
+	public static void main(String[] args) {
+		String s="hidear";
+		int i=0;
+		for(char c:s.toCharArray()) {
+			i++;
+		}
+		System.out.println(i);
+
+	}
+
+}
+*********************************************************************************************************************
+7.Write a program to reverse a string?
+
+
+
+
+package pack1;
+
+public class Stringreverse {
+
+	public static void main(String[] args) {
+		String s="rani";
+		String rev="";
+		  for(int i=s.length()-1;i>=0;i--)
+	        {
+	            rev=rev+s.charAt(i);
+	        }
+	        System.out.println("Reverse String is"+rev);
+	        
+
+	}
+
+}
+********************************************************************************************************************
+8.. Write a program to find duplicate characters and count in String?
+
+
+
+package pack1;
+
+public class Duplicateandcount {
+
+	public static void main(String[] args) {
+	 String s="sravani";
+	char c[]=s.toCharArray();
+	for(char ch='a';ch<='z';ch++) {
+		int count=0;
+		for(int j=0;j<c.length;j++) {
+			if(ch==c[j]) {
+				{
+					count++;
+				}
+				if(count>0) {
+					System.out.println(count +" "+ch);
+				}
+			}
+		}
+
+	}
+
+}}
+******************************************************************************************
+9. Write a Palindrom program?
+package pack1;
+
+public class Palindrome {
+
+	public static void main(String[] args) {
+	String str="raar";
+	String s="";
+	for(int i=str.length()-1;i>=0;i--) {
+		s=s+str.charAt(i);
+		
+	}
+	if(str.equals(s)) {
+		System.out.println("palindrome");
+	}
+	else {
+		System.out.println("not a palindrome");
+	}
+	}
+
+}
+************************************************************************************************************
+10. Write a fibonacci series program?
+
+package pack1;
+
+public class Fibonacciseries {
+
+	public static void main(String[] args) {
+		 int a=0,b=1,c;
+		
+				
+				 
+				for(int i=0;i<=8;i++)
+				{
+					c=a+b;
+					 System.out.println(c);
+					 a=b;
+					 b=c;
+					 
+					
+				}
+			}
+
+	}
+
+
+**********************************************************************************************************************
+11.Swap two numbers with out using third variable?
+
+package pack1;
+
+import java.util.Scanner;
+
+public class Swap2num {
+
+	
+		public static void main(String[] args) {
+	        System.out.println("enter two value of x and y");
+	        Scanner input=new Scanner(System .in);
+	        int x=input.nextInt();
+	        int y=input.nextInt();
+	        System.out.println("before swap number are:" +x +" " +y);
+	        x=x+y;
+	        y=x-y;
+	        x=x-y;
+	        System.out.println("after swap number are:"+x+" "+y);
+	        
+
+
+
+	   }}
+
+****************************************************************************************************************
+12.Write a program String reverse by using Hashmap?
+
+
+
+package pack1;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class Hashmap {
+
+	public static void main(String[] args) {
+		 HashMap<String, String> test = new HashMap<String, String>();
+		    test.put("a", "1");
+		    test.put("d", "1");
+		    test.put("b", "2");
+		    test.put("c", "3");
+		    test.put("d", "4");
+		    test.put("d", "41");
+
+		    ArrayList arr=new ArrayList();
+		    ArrayList arr1=new ArrayList();
+		    Set<Map.Entry<String, String>> se = test.entrySet();
+		    for(Map.Entry<String, String>se1:se) {
+		    	arr.add(se1.getKey());
+		    	arr1.add(se1.getValue());
+		    	System.out.println(se1.getKey()+"  "+se1.getValue());
+		    }
+
+		    for(int i=arr.size()-1;i>=0;i--) {
+		    	System.out.println("key is "  + arr.get(i)+  "value is"+arr1.get(i));
+		    }
+		 
+		}
+
+
+}
+*****************************************************************************************
+13. Write a program for Prime number?
+
+
+package pack1;
+
+public class Prime2 {
+
+	public static void main(String[] args) {
+		int num=15;
+		int count=0;
+		for(int i=1;i<=num;i++) {
+			if(num%i==0) {
+				count++;
+			}
+			
+		}
+if(count==2) {
+	System.out.println("prime");
+}
+else {
+	System.out.println("not a prime");
+}
+	}
+
+}
+***********************************************************************************************************
+14. Write a program for even or odd?
+package pack1;
+
+public class Evenorodd {
+
+	public static void main(String[] args) {
+		int i=11;
+		if(i%2==0) {
+			System.out.println("even");
+		}
+		else
+		{
+			System.out.println("odd");
+		}
+	}
+
+}
+*****************************************************************************************************
+15.. Write a program for method overloading with example?
+
+
+package pack1;
+
+public class Mol {
+	public int add(int a,int b) {
+		return(a+b);
+	}
+	public int add(int a,int b,int c) {
+		return(a+b+c);
+	}
+	public double add(double a,double b) {
+		return(a+b);
+	}
+
+	public static void main(String[] args) {
+		Mol ob=new Mol();
+		int a=ob.add(10, 20);
+		int b=ob.add(10, 20, 30);
+		double d=ob.add(12.5, 14.5);
+		
+  System.out.println(d);
+  System.out.println(b);
+  System.out.println(a);
+	}
+
+}
+************************************************************************************
+16.Write a program for method overriding with example?
+
+
+
+package pack1;
+
+public class Mor {
+	public int sum(int a,int b) {
+		return(a+b);
+
+	
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+package pack1;
+
+public class Mor2 extends Mor {
+public int sum(int a,int b) {
+	return a;
+}
+	public static void main(String[] args) {
+		Mor2 obj=new Mor2();
+		int a=obj.sum(10, 20);
+		System.out.println(a );
+		
+
+	}
+
+}
+
+
+
+***********************************************************************************************
+17. Write a program using interface?
+
+
+
+
+package pack1;
+
+public interface Webdriver {
+	public void sum();
+	public void sub();
+
+}
+
+
+
+
+
+
+
+package pack1;
+
+public class Chromedriver implements Webdriver {
+
+	@Override
+	public void sum() {
+		System.out.println(100);
+		
+	}
+
+	@Override
+	public void sub() {
+		System.out.println(200);
+		
+	}
+	public static void main(String[] args) {
+		Webdriver driver=new Chromedriver();
+		driver.sub();
+		driver.sum();
+
+
+}
+}
+
+
+
+
+***********************************************************************************
+18. write a program missing number in array? example: int[1,2,4,5,6];
+
+1st method:
+
+package pack1;
+
+public class Missingnumber {
+
+	public static void main(String[] args) {
+	int a[]= {1,2,4,5};
+	int sum1=0;
+	for(int i=0;i<a.length;i++) {
+		sum1=sum1+a[i];}
+		System.out.println(sum1);
+	int sum2=0;
+	for(int i=1;i<=5;i++) {
+		sum2=sum2+i;
+	}
+	System.out.println(sum2);
+	System.out.println("missing number:"+(sum2-sum1));
+	
+
+	}
+
+}
+
+
+
+2nd method:
+
+
+public static void main(String[] args) {
+Scanner obj=new Scanner(System.in);
+System.out.print("Enter length of an array : ");
+int n=obj.nextInt();
+int a[]=new int[n];
+for(int i=0;i<n;i++) {
+    a[i]=obj.nextInt();
+}
+System.out.println("Entered Array is : "+Arrays.toString(a));
+Arrays.sort(a);
+int b=0;
+for(int j=0;j<a[a.length-1];j++) {
+    if(j==a[b])
+        b++;
+    else
+        System.out.print(j);
+}
+    }
+
+
+
+3rd method:
+
+
+
+public class Missing_Array {
+
+
+
+   public static void main(String[] args) {
+        int[] arr={1,2,3,4,6,7,8,9};
+        int n=arr.length+1;
+        int sum=(n*(n+1))/2;
+        
+        for(int i=0;i<arr.length;i++)
+        {
+            sum=sum-arr[i];
+        }
+        System.out.println("Missing number"+sum);
+        
+    }
+
+
+
+}
+
+
+
+******************************************************************************************
+ 19.write a program separate the alphabet,number and specialcharacter , ex: ab1c@h4o3!*   o/p: abcho 143 @!*
+
+
+package pack1;
+
+import java.util.Scanner;
+
+public class Stringcharnumspecial {
+
+	public static void main(String[] args) {
+		String str;
+		Scanner input=new Scanner(System.in);
+		str=input.nextLine();
+		String temp1="",temp2="",temp3="";
+		for(int i=0;i<str.length();i++) {
+			if((str.charAt(i)>='A'&&str.charAt(i)<='Z') || (str.charAt(i)>='a'&&str.charAt(i)<='z')) {
+				temp1=temp1+""+str.charAt(i);			}
+			else if((str.charAt(i)>='0'&&str.charAt(i)<='9')) {
+				temp2=temp2+""+str.charAt(i);			}
+		
+		else {
+			temp3=temp3+""+str.charAt(i);	
+		}
+
+	}
+		String res=temp1+temp2+temp3;
+		System.out.println(res);
+
+}
+}
+
+
+
+***********************************************************************************************************
+20.Write a program String="india" , index of n letter
+
+
+
+package pack1;
+
+public class Index {
+
+	public static void main(String[] args) {
+	String s="india";
+	int a=s.indexOf('d');
+	System.out.println(a);
+
+	}
+
+}
+
+*************************************************************************************************************
+21.Write a program given two string in array and find the duplicate from the array using arraylist?
+
+
+
+1stmethod:
+
+
+package pack1;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+
+public class Duplicatestringarraylist {
+
+	public static void main(String[] args) {
+		ArrayList<String>s=new ArrayList();
+		s.add("rani");
+		s.add("raja");
+		s.add("rani");
+		s.add("raja");
+		s.add("sravani");
+		s.add("raju");
+		s.add("advik");
+		HashSet<String>b=new HashSet<String>();
+		for(String a:s) {
+			if(b.add(a)==false) {
+				System.out.println(a);
+			}
+			
+		}
+
+	}
+
+}
+
+
+
+2nd method:
+
+package pack1;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+
+public class Dup {
+
+	public static void main(String[] args) {
+		String names[]=new String[7];
+		names[0]="raja";
+		names[1]="vani";
+		names[2]="raja";
+		names[3]="vani";
+		names[4]="sravani";
+		names[5]="raju";
+		names[6]="mahesh";
+		HashSet<String>s=new HashSet<String>();
+		//ArrayList<String>s=new ArrayList<String>();
+		for(String a:names) {
+			if(s.add(a)==false) {
+				System.out.println(a);
+	}
+
+}}}
+
+
+
+
+**************************************************************************************************************
+
+STRING METHODS:
+
+
+
+package pack1;
+
+import org.omg.Messaging.SyncScopeHelper;
+
+public class Stringmethods {
+
+	public static void main(String[] args) {
+		String x="welcome to hyd";
+		String r="to hyderabad";
+		char c= x.charAt(3);
+		
+//				System.out.println(c);
+//				System.out.println(x.indexOf('o'));
+//				System.out.println(x.charAt(5));
+//				System.out.println(x.toLowerCase());
+//				System.out.println(x.toUpperCase());
+//				System.out.println(x.isEmpty());
+//				boolean a=x.isEmpty();
+//				System.out.println(a);
+//				System.out.println(x.startsWith("hys"));
+//				System.out.println(x.endsWith("com"));
+//				System.out.println(x.contains("to"));
+//				System.out.println(x+r);
+//				System.out.println(x.concat(r));
+//				System.out.println(x.substring(2));
+//				System.out.println(x.substring(3,6));
+//				String s="My World is the best";
+//				//System.out.println(s.replace("best","better"));
+//				System.out.println(s.replaceAll("s","X"));
+	String d="apple";
+	String h="Apple";
+	System.out.println(d.equals(h));
+	System.out.println(d.equalsIgnoreCase(h));
+	System.out.println(d.compareTo(h));
+	
+				
+				
+	}
+
+}
+
+
+***********************************************************************************************************************
+
+
+
+
+	        
+	     
+
+	
+
+

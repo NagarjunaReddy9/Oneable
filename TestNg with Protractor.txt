@@ -1,0 +1,175 @@
+
+
+Pages->pageobject->
+
+
+let pageobject = function () {
+    let txtname = element(by.name("username"));
+    let txtpwd = element(by.name("password"));
+    let submit = element(by.name("login"));
+  
+    this.get = function (url) {
+      browser.get(url); // Use the parameter 'url' instead of the hardcoded URL
+    };
+  
+    this.setName = function (username) {
+      txtname.sendKeys(username);
+    };
+  
+    this.setPass = function (password) {
+      txtpwd.sendKeys(password);
+    };
+  
+    this.sub = function () {
+      submit.click();
+    };
+  
+    // this.verifyResult = function (expectedUsername, expectedPassword) {
+      
+    //    const loggedInUsername = element(by.id("username"));
+    //    const loggedInPassword = element(by.id("password"));
+  
+      
+    //   expect(loggedInUsername.getText()).toBe(expectedUsername);
+    //    expect(loggedInPassword.getText()).toBe(expectedPassword);
+    //    console.log("successful")
+    // };
+  };
+  
+  module.exports = new pageobject();
+
+*************************************************************************************************************************************************************************
+2)Login.js
+
+
+var pageobject = require('./pages/pageobjects.js');
+
+describe("Login Test Suite", function () {
+  it("should log in successfully", function () {
+    pageobject.get("https://adactinhotelapp.com/HotelAppBuild2/");
+    pageobject.setName("Chandra12345");
+    pageobject.setPass("Chandu");
+    browser.sleep(3000)
+    pageobject.sub();
+
+   // pageobject.verifyResult("Chandra12345", "Chandra");
+  
+  });
+});
+*****************************************************************************************************************************************************************************
+3)conf.file
+
+exports.config={
+    directConnect:true,
+    capabilities:{
+        'browserName':'chrome'
+    },
+    framework:'jasmine',
+    
+    specs:['login.js'],
+    onPrepare:function(){
+        browser.ignoreSynchronization=true;
+    }
+  }
+
+  ***********************************************************************************************************************************************************************
+
+
+
+
+adactin basic script
+
+describe("adactin", function () {
+  it("login valid credentials", function () {
+      browser.get("https://adactinhotelapp.com/HotelAppBuild2/");
+      browser.manage().window().maximize();
+
+      // Get the page title
+      browser.getTitle().then(function (title) {
+          console.log("Page Title:", title);
+      });
+
+      var username = element(by.id('username'));
+      username.sendKeys("Chandra12345");
+
+      // Retrieving the 'value' attribute of the 'username' input field
+      username.getAttribute('value').then(function (attributeValue) {
+          console.log("Username input value:", attributeValue);
+      });
+
+      var password = element(by.id('password'));
+      password.sendKeys("Chandu");
+      browser.sleep(3000)
+
+      var loginButton = element(by.id('login'));
+      loginButton.click();
+
+      var locationDropdown = element(by.name('location'));
+      locationDropdown.click();
+      browser.sleep(3000)
+
+      
+      var londonOption = locationDropdown.element(by.cssContainingText('option', 'London'));
+     
+      londonOption.click();
+      browser.sleep(5000)
+
+
+      element(by.name('Submit')).click();
+
+      
+      element(by.xpath('/html/body/table[2]/tbody/tr[1]/td[2]/a[3]')).click()
+
+
+      var currentPassword = element(by.id('current_pass'));
+      currentPassword.sendKeys('Chandu');
+      browser.sleep(3000)
+
+      var newPassword = element(by.name('new_password'));
+      newPassword.sendKeys('Chandu');
+      browser.sleep(3000)
+
+      var retypePassword = element(by.name('re_password'));
+      retypePassword.sendKeys('Chandu');
+      browser.sleep(3000)
+
+      var submitButton = element(by.id('Submit'));
+      submitButton.click();
+      
+      
+    });
+
+     
+ 
+});
+
+ // element(by.css('a[href*="Logout"]')).click();
+**********************************************************************************************************************************************************************************
+
+
+
+
+Frames->
+
+describe("test suite",function(){
+
+it("frames",function()
+{
+browser.waitForAngularEnabled(false);
+browser.get("https://www.selenium.dev/selenium/docs/api/java/index")
+browser.manage().window().maximize();
+browser.sleep(10000)
+browser.switchTo().frame("packageListFrame")
+browser.sleep(10000)
+element(by.lnkText('org.openqa.selenium')).click()
+browser.sleep(10000)
+browser.switchTo().defaultContent();
+browser.switchTo().frame("packageFrame")
+
+
+})
+})
+
+
+
+****************************************************************************
